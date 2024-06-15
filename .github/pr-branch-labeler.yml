@@ -1,0 +1,7 @@
+# Apply label "master" if base matches "master"
+master:
+  base: "master"
+
+# Apply label "qa" if base matches "qa"
+qa:
+  base: "qa"

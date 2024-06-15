@@ -1,0 +1,86 @@
+name: Release Drafter
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    permissions:
+      # write permission is required to create a GitHub release
+      contents: write
+      # write permission is required for autolabeler
+      # otherwise, read permission is required at least
+      pull-requests: write
+    runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.draft.outputs.tag_name }}
+    steps:
+      # (Optional) GitHub Enterprise requires GHE_HOST variable set
+      #- name: Set GHE_HOST
+      #  run: |
+      #    echo "GHE_HOST=${GITHUB_SERVER_URL##https:\/\/}" >> $GITHUB_ENV
+
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: release-drafter/release-drafter@v5
+        id: draft
+        # (Optional) specify config name to use, relative to .github/. Default: release-drafter.yml
+        # with:
+        #   config-name: my-config.yml
+        #   disable-autolabeler: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Debug step to ensure tag_name is being set
+      - name: Tag Output
+        run: |
+          echo "Tag Name: ${{ steps.draft.outputs.tag_name }}"
+
+  update-version:
+    needs: [ update_release_draft ]
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Check and Update Version
+        id: check-version
+        run: |
+          NEW_VERSION=${{ needs.update_release_draft.outputs.tag_name }}
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+
+          echo "New version: $NEW_VERSION"
+          echo "Current version: $CURRENT_VERSION"
+
+          if [ "$NEW_VERSION" != "$CURRENT_VERSION" ]; then
+            echo "Updating version to $NEW_VERSION"
+            jq --arg version "$NEW_VERSION" '.version = $version' package.json > package.json.tmp
+            mv package.json.tmp package.json
+            echo "commit_required=true" >> $GITHUB_OUTPUT
+            echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          else
+            echo "Version is up-to-date."
+            echo "commit_required=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        if: steps.check-version.outputs.commit_required == 'true'
+        with:
+          base: master
+          commit-message: update version
+          title: 'release: Update Version to ${{ steps.check-version.outputs.version }}'
+          body: Update version to ${{ steps.check-version.outputs.version }} in `package.json`
+          branch: update-version
+          delete-branch: true
+          reviewers: anuj9196,

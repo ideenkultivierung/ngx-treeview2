@@ -27,13 +27,13 @@
     "recursive",
     "angular tree component"
   ],
-  "author": "Leo Vo <leovo2708@gmail.com>",
+  "author": "TapBeep <hello@tapbeep.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leovo2708/ngx-treeview.git"
+    "url": "git+https://github.com/tapbeep/ngx-treeview2.git"
   },
   "bugs": {
-    "url": "https://github.com/leovo2708/ngx-treeview/issues"
+    "url": "https://github.com/tapbeep/ngx-treeview2/issues"
   },
   "dependencies": {
     "@angular/animations": "^17.3.4",

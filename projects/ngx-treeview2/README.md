@@ -1,4 +1,4 @@
-# ngx-treeview [![Build Status](https://travis-ci.org/leovo2708/ngx-treeview.svg?branch=master)](https://travis-ci.org/leovo2708/ngx-treeview) [![npm version](https://badge.fury.io/js/ngx-treeview.svg)](https://badge.fury.io/js/ngx-treeview)
+# ngx-treeview
 
 An Angular treeview component with checkbox
 
@@ -6,9 +6,9 @@ An Angular treeview component with checkbox
 
 - [Angular](https://angular.io)
 - [Lodash](https://lodash.com)
-- [Bootstrap 4](https://getbootstrap.com)
+- [Bootstrap 5](https://getbootstrap.com)
 
-This component is currently supporting Bootstrap 4. If you are using Bootstrap 4 alpha 6, please downgrade to the older version 1.0.10.
+This component is currently supporting Bootstrap 5.
 
 You can customize CSS yourself to break down dependencies to Bootstrap.
 
@@ -23,20 +23,20 @@ You can customize CSS yourself to break down dependencies to Bootstrap.
 
 ## Demo
 
-[https://leovo2708.github.io/ngx-treeview/](https://leovo2708.github.io/ngx-treeview/)
+[https://tapbeep.github.io/ngx-treeview2/](https://tapbeep.github.io/ngx-treeview2/)
 
 ## Installation
 
-After install the above dependencies, install `ngx-treeview` via:
+After install the above dependencies, install `ngx-treeview2` via:
 
 ```shell
-npm install ngx-treeview --save
+npm install ngx-treeview2 --save
 ```
 
 Once installed you need to import our main module in your application module:
 
 ```js
-import { TreeviewModule } from 'ngx-treeview';
+import {TreeviewModule} from 'ngx-treeview2';
 
 @NgModule({
   declarations: [AppComponent, ...],
@@ -166,7 +166,7 @@ vegetableCategory.correctChecked(); // need this to make 'Vegetable' node to cha
 Extract data from list of checked TreeviewItem and send it in parameter of event selectedChange. Some built-in TreeviewEventParser:
 
 - DefaultTreeviewEventParser: return values of checked items.
-- DownlineTreeviewEventParser: return list of checked items in orginal order with their ancestors.
+- DownlineTreeviewEventParser: return list of checked items in original order with their ancestors.
 - OrderDownlineTreeviewEventParser: return list of checked items in checked order with their ancestors. Note that: value of a leaf must be different from value of other leaves.
 
 #### Templating:
@@ -175,4 +175,4 @@ See example 4 & 5.
 
 ## Contributing
 
-I am very appreciate for your ideas, proposals and found bugs which you can leave in github issues. Thanks in advance!
+I am very appreciate for your ideas, proposals and found bugs which you can leave in GitHub issues. Thanks in advance!
