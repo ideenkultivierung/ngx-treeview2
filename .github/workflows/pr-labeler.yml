@@ -1,0 +1,24 @@
+name: "Label Pull Request"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  main:
+    name: Validate PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your code
+        uses: actions/checkout@v3
+
+      - uses: srvaroa/labeler@master
+        with:
+          config_path: .github/pr-labeler.yml
+          use_local_config: false
+          fail_on_error: false
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

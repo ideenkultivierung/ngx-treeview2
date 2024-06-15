@@ -3,5 +3,5 @@ master:
   base: "master"
 
 # Apply label "qa" if base matches "qa"
-qa:
-  base: "qa"
+dev:
+  base: "dev"

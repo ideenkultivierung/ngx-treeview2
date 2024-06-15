@@ -22,8 +22,10 @@ jobs:
             release
           types: |
             feat
+            feature
             enhancement
             fix
+            bugfix
             hotfix
             docs
             style
@@ -35,3 +37,4 @@ jobs:
             chore
             revert
             i18n
+            breaking
