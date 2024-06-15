@@ -18,6 +18,8 @@ customLabels:
     label: 'enhancement'
   - text: 'fix:'
     label: 'bug'
+  - text: 'bugfix'
+    label: 'fix'
   - text: 'docs:'
     label: 'documentation'
   - text: 'build:'
