@@ -38,6 +38,8 @@ customLabels:
     label: 'release'
   - text: 'i18n'
     label: 'i18n'
+  - text: 'breaking'
+    label: 'breaking'
 # Search the body of the PR for the `text` [default: true]
 searchBody: false
 # Search the title of the PR for the `text` [default: true]
