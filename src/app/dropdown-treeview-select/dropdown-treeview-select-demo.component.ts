@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TreeviewItem, TreeviewConfig } from 'ngx-treeview';
-import { BookService } from '../book/book.service';
+import {Component, OnInit} from '@angular/core';
+import {TreeviewConfig, TreeviewItem} from 'ngx-treeview2';
+import {BookService} from '../book/book.service';
 
 @Component({
   selector: 'ngx-dropdown-treeview-select-demo',
@@ -10,7 +10,7 @@ import { BookService } from '../book/book.service';
   ]
 })
 export class DropdownTreeviewSelectDemoComponent implements OnInit {
-  value = 11;
+  value: number | undefined = 11;
   items: TreeviewItem[];
   config = TreeviewConfig.create({
     hasFilter: true,

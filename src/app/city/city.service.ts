@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import cities from './cities.json';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
+import cities from "./cities";
+
+// import cities from './cities.json';
 
 export interface City {
   id: number;
@@ -17,7 +19,7 @@ export class CityService {
 
   getCities(): Observable<City[]> {
     if (location.hostname === 'localhost') {
-      return of(cities as City[]);
+      return of(cities as unknown as City[]);
     } else {
       const url = 'https://raw.githubusercontent.com/leovo2708/ngx-treeview/master/src/app/city/cities.json';
       return this.httpClient.get<City[]>(url);

@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { TreeviewModule } from 'ngx-treeview';
-import { DropdownTreeviewSelectComponent } from './dropdown-treeview-select.component';
-import { DropdownTreeviewSelectDemoComponent } from './dropdown-treeview-select-demo.component';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {TreeviewModule} from 'ngx-treeview2';
+import {DropdownTreeviewSelectComponent} from './dropdown-treeview-select.component';
+import {DropdownTreeviewSelectDemoComponent} from './dropdown-treeview-select-demo.component';
 
 @NgModule({
   imports: [

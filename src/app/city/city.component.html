@@ -19,7 +19,8 @@
     <form class="d-inline-block">
       <label class="col-form-label mr-sm-2">City category</label>
       <div class="d-inline-block">
-        <ngx-dropdown-treeview [items]="cities | ngxTreeview:'name'" [buttonClass]="'btn-outline-primary'" (selectedChange)="onSelectedChange($event)">
+        <ngx-dropdown-treeview (selectedChange)="onSelectedChange($event)" [buttonClass]="'btn-outline-primary'"
+                               [items]="$any(cities | ngxTreeview:'name')">
         </ngx-dropdown-treeview>
       </div>
     </form>

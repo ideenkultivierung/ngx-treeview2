@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { TreeviewItem, TreeviewConfig } from 'ngx-treeview';
-import { BookService } from './book.service';
+import {Component, OnInit} from '@angular/core';
+import {TreeviewConfig, TreeviewItem} from 'ngx-treeview2';
+import {BookService} from './book.service';
 
 @Component({
   selector: 'ngx-book',

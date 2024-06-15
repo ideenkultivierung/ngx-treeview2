@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { TreeviewConfig, TreeviewItem } from 'ngx-treeview';
-import { RoomService } from './room.service';
+import {Component, OnInit} from '@angular/core';
+// import { TreeviewConfig, TreeviewItem } from 'ngx-treeview';
+import {RoomService} from './room.service';
+import {TreeviewConfig, TreeviewItem} from "ngx-treeview2";
 
 @Component({
   selector: 'ngx-room',

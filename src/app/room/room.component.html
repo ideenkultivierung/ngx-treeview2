@@ -13,8 +13,8 @@
     <form class="d-inline-block">
       <label class="col-form-label mr-sm-2">Item category</label>
       <div class="d-inline-block">
-        <ngx-dropdown-treeview [config]="config" [items]="rooms" (selectedChange)="values = $event">
-        </ngx-dropdown-treeview>
+        <ngx-dropdown-treeview (selectedChange)="values = $event" [config]="config"
+                               [items]="rooms"></ngx-dropdown-treeview>
       </div>
     </form>
   </div>

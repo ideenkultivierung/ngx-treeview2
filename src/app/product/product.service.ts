@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { TreeviewItem } from 'ngx-treeview';
+import {TreeviewItem} from "ngx-treeview2";
+
+// import { TreeviewItem } from 'ngx-treeview';
 
 export class ProductService {
   getProducts(): TreeviewItem[] {
@@ -15,7 +16,11 @@ export class ProductService {
         { text: 'Potato', value: 22 }
       ]
     });
-    vegetableCategory.children.push(new TreeviewItem({ text: 'Mushroom', value: 23, checked: false }));
+    (vegetableCategory.children as TreeviewItem[]).push(new TreeviewItem({
+      text: 'Mushroom',
+      value: 23,
+      checked: false
+    }));
     vegetableCategory.correctChecked(); // need this to make 'Vegetable' node to change checked value from true to false
     return [fruitCategory, vegetableCategory];
   }
