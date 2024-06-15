@@ -1,7 +1,7 @@
 name-template: '$RESOLVED_VERSION 🌈'
 tag-template: '$RESOLVED_VERSION'
 categories:
-  - title: '🚀 Features'
+  - title: '🚀 New Changes'
     labels:
       - 'feature'
       - 'breaking'
@@ -9,7 +9,7 @@ categories:
     labels:
       - 'enhancement'
       - 'i18n'
-  - title: '🐛 Bug Fixes'
+  - title: '🐛 Fixes'
     labels:
       - 'fix'
       - 'bugfix'
