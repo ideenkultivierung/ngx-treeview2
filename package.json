@@ -1,6 +1,6 @@
 {
   "name": "angular-ngx-treeview",
-  "version": "10.0.2",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "An Angular treeview component with checkbox",
   "scripts": {
