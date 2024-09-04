@@ -35,26 +35,25 @@
     "url": "https://github.com/tapbeep/ngx-treeview2/issues"
   },
   "dependencies": {
-    "@angular/animations": "^17.3.4",
-    "@angular/common": "^17.3.4",
-    "@angular/compiler": "^17.3.4",
-    "@angular/core": "^17.3.4",
-    "@angular/forms": "^17.3.4",
-    "@angular/platform-browser": "^17.3.4",
-    "@angular/platform-browser-dynamic": "^17.3.4",
-    "@angular/router": "^17.3.4",
+    "@angular/animations": "^18.2.2",
+    "@angular/common": "^18.2.2",
+    "@angular/compiler": "^18.2.2",
+    "@angular/core": "^18.2.2",
+    "@angular/forms": "^18.2.2",
+    "@angular/platform-browser": "^18.2.2",
+    "@angular/platform-browser-dynamic": "^18.2.2",
+    "@angular/router": "^18.2.2",
     "bootstrap": "^5.3.3",
     "lodash": "^4.17.15",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.4"
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.4",
-    "@angular/cli": "~17.3.4",
-    "@angular/compiler-cli": "^17.3.4",
-    "@angular/localize": "^17.3.4",
-    "@sentry/cli": "^2.31.2",
+    "@angular-devkit/build-angular": "^18.2.2",
+    "@angular/cli": "~18.2.2",
+    "@angular/compiler-cli": "^18.2.2",
+    "@angular/localize": "^18.2.2",
     "@types/jasmine": "~4.3.0",
     "@types/lodash": "^4.14.157",
     "@types/node": "^20.3.1",
@@ -64,13 +63,13 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "ng-packagr": "^17.3.0",
+    "ng-packagr": "^18.2.1",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "typescript": "~5.4.5"
   },
   "engines": {
-    "node": "20.11.1",
-    "npm": "10.2.4"
+    "node": "20.16.0",
+    "npm": "10.8.1"
   }
 }

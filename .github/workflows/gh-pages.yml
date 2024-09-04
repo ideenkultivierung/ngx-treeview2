@@ -28,13 +28,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.11
+          node-version: 20.16
           cache: npm
 
       - name: Install Angular
         run: |
           echo "$(ls -la)"
-          npm install -g @angular/cli@17.3.4
+          npm install -g @angular/cli@18.2.2
           ng v
 
       - name: Install npm dependencies

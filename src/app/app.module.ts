@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {BookComponent} from './book/book.component';
@@ -15,15 +15,6 @@ import {DisabledOnSelectorDirective} from './disabled-on-selector.directive';
 import {TreeviewModule} from "ngx-treeview2";
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    TreeviewModule.forRoot(),
-    DropdownTreeviewSelectModule,
-    AppRoutingModule,
-    TreeviewModule
-  ],
   declarations: [
     NotFoundComponent,
     BookComponent,
@@ -33,9 +24,14 @@ import {TreeviewModule} from "ngx-treeview2";
     AppComponent,
     DisabledOnSelectorDirective
   ],
-  providers: [
-    I18n
-  ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], imports: [BrowserModule,
+    FormsModule,
+    TreeviewModule.forRoot(),
+    DropdownTreeviewSelectModule,
+    AppRoutingModule,
+    TreeviewModule], providers: [
+    I18n,
+    provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule { }
