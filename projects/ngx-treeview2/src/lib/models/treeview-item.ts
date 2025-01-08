@@ -1,5 +1,5 @@
-import {TreeviewHelper} from '../helpers/treeview-helper';
-import {isBoolean, isNil, isString} from "lodash";
+import { TreeviewHelper } from '../helpers/treeview-helper';
+import { isBoolean, isNil, isString } from 'lodash';
 
 export interface TreeviewSelection {
   checkedItems: TreeviewItem[];
@@ -34,16 +34,16 @@ export class TreeviewItem {
     }
     this.value = item.value;
     if (isBoolean(item.checked)) {
-      this.checked = item.checked;
+      this.checked = item.checked || false;
     }
     if (isBoolean(item.collapsed)) {
-      this.collapsed = item.collapsed;
+      this.collapsed = item.collapsed || true;
     }
     if (isBoolean(item.disabled)) {
       this.disabled = item.disabled;
     }
     if (!isNil(item.children) && item.children.length > 0) {
-      this.children = item.children.map(child => {
+      this.children = item.children.map((child) => {
         if (this.disabled === true) {
           child.disabled = true;
         }
@@ -77,7 +77,9 @@ export class TreeviewItem {
     if (!this.internalDisabled) {
       this.internalChecked = value;
       if (!isNil(this.internalChildren)) {
-        this.internalChildren.forEach(child => child.setCheckedRecursive(value));
+        this.internalChildren.forEach((child) =>
+          child.setCheckedRecursive(value)
+        );
       }
     }
   }
@@ -90,7 +92,7 @@ export class TreeviewItem {
     if (this.internalDisabled !== value) {
       this.internalDisabled = value;
       if (!isNil(this.internalChildren)) {
-        this.internalChildren.forEach(child => child.disabled = value);
+        this.internalChildren.forEach((child) => (child.disabled = value));
       }
     }
   }
@@ -108,7 +110,9 @@ export class TreeviewItem {
   setCollapsedRecursive(value: boolean): void {
     this.internalCollapsed = value;
     if (!isNil(this.internalChildren)) {
-      this.internalChildren.forEach(child => child.setCollapsedRecursive(value));
+      this.internalChildren.forEach((child) =>
+        child.setCollapsedRecursive(value)
+      );
     }
   }
 
@@ -124,7 +128,7 @@ export class TreeviewItem {
       this.internalChildren = value;
       if (!isNil(this.internalChildren)) {
         let checked: any = null;
-        this.internalChildren.forEach(child => {
+        this.internalChildren.forEach((child) => {
           if (checked === null) {
             checked = child.checked;
           } else {
@@ -149,14 +153,18 @@ export class TreeviewItem {
         uncheckedItems.push(this);
       }
     } else {
-      const selection = TreeviewHelper.concatSelection(this.internalChildren, checkedItems, uncheckedItems);
-      checkedItems = selection["checked"];
-      uncheckedItems = selection["unchecked"];
+      const selection = TreeviewHelper.concatSelection(
+        this.internalChildren,
+        checkedItems,
+        uncheckedItems
+      );
+      checkedItems = selection['checked'];
+      uncheckedItems = selection['unchecked'];
     }
 
     return {
       checkedItems,
-      uncheckedItems
+      uncheckedItems,
     };
   }
 
@@ -165,7 +173,7 @@ export class TreeviewItem {
   }
 
   private getCorrectChecked(): boolean {
-    let checked: boolean = false;
+    let checked: boolean | null = null;
     if (!isNil(this.internalChildren)) {
       for (const child of this.internalChildren) {
         child.internalChecked = child.getCorrectChecked();
@@ -180,6 +188,6 @@ export class TreeviewItem {
       checked = this.checked;
     }
 
-    return checked;
+    return checked || false;
   }
 }
